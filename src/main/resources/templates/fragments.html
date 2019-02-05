@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <title th:text="${title}"> </title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        img {
+            width:100%;
+        }
+
+    </style>
+</head>
+<body>
+
+<div th:fragment="topbar">
+    <div class="jumbotron" style ="margin-bottom:0px">
+        <div class="container text-center">
+            <h1 style="color:#337ab7">NOXID HR AIO</h1>
+            <p>Welcome To The All In One Human Resource Solution</p>
+            <p style="color:#337ab7">TIME TRACKER&nbsp;&nbsp;|&nbsp;&nbsp;EMPLOYEE REVIEW&nbsp;&nbsp;|&nbsp;&nbsp;PAYROLL</p>
+            <p> WITH EXCELLENT TIMING YOU'LL PASS THAT REVIEW AND GET A GREAT REWARD </p>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="navigation">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand"  href="#">NOXID HR AIO</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                    <li><a href="/admin/user/"><span class="glyphicon glyphicon-briefcase"></span>EMPLOYEES</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-fire"></span> BLANK</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span>BLANK</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>BLANK</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-comment"></span>BLANK</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span><span th:text="${#authentication.getPrincipal().getUsername()}"></span></a></li>
+                    <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+</div>
+
+<footer class="container-fluid text-center" style="background-color:grey; padding:25px;" th:fragment="footer">
+    <p>NOXID HR AIO SOLUTIONS Copyright<span class="glyphicon glyphicon-copyright-mark"></span></p>
+</footer>
+
+</body>
+</html>
