@@ -38,8 +38,10 @@ public class Role {
     public void setRole_desc(String role_desc) {
         this.role_desc = role_desc;
     }
+
     public Role() {
     }
+
     public Role(String role_name, String role_desc) {
         this.role_name = role_name;
         this.role_desc = role_desc;

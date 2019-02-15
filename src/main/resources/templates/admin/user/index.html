@@ -9,7 +9,42 @@
 
 <li><a href="/admin/user/add">Add Employee</a> </li>
 
+<li><a href="/admin/user/edit">Edit User</a> </li>
 
+<li><a href="/admin/user/remove">Remove User</a> </li>
+<br/>
+
+<div class="jumbotron text-center" style="background-color:#337ab7; font-family:verdana;">
+    <h1 th:text="${title}">Default Title</h1>
+</div>
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-9">
+            <table class="table " id="myTable">
+                <thead>
+                <tr>
+                    <th style="cursor:pointer;" onclick="sortTable(0)">Edit</th>
+                    <th style="cursor:pointer;" onclick="sortTable(1)">Department</th>
+                    <th style="cursor:pointer;" onclick="sortTable(2)">Department Manager</th>
+                    <th style="cursor:pointer;" onclick="sortTable(2)">Department Manager</th>
+                    <th style="cursor:pointer;" onclick="sortTable(2)">Department Manager</th>
+                    <th style="cursor:pointer;" onclick="sortTable(2)">Department Manager</th>
+                    <th style="cursor:pointer;" onclick="sortTable(2)">Department Manager</th>
+                    <th style="cursor:pointer;" onclick="sortTable(2)">Department Manager</th>
+                </tr>
+                </thead>
+                <tbody >
+                <tr th:each="department: ${departments}">
+                    <td><a th:href="'/admin/department/edit/' + ${department.id}" th:text="Edit"></a></td>
+                    <td th:text="${department.dept_name} "></td>
+                    <td th:text="${department.dept_head != null} ? ${department.dept_head.getFirst_name()} + ' ' + ${department.dept_head.getLast_name()} : 'NOT ASSIGNED' "></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <br/>
 
 <footer th:replace="fragments :: footer"></footer>

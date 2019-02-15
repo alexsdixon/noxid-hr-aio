@@ -34,7 +34,6 @@ public class User {
 
 
     @NotNull
-    @Pattern(regexp = "[a-zA-Z][a-zA-Z0-9_-]{4,11}", message = "Password must be between 5 and 12 characters, start with a letter, and contain only letters and numbers")
     private String password;
 
     private String job_title;
@@ -42,6 +41,10 @@ public class User {
     @ManyToMany
     @JoinColumn(name = "id")
     private Set<Role> roles;
+
+
+    @ManyToOne
+    Department department;
 
     public Set<Role> getRoles() {
         return roles;
@@ -51,6 +54,13 @@ public class User {
         this.roles = roles;
     }
 
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 
     public String getFirst_name() {
         return first_name;
